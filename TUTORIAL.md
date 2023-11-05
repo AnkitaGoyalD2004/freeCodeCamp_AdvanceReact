@@ -1,4 +1,4 @@
-## Setup
+ ## Setup
 
 - traditional Vite app
   - removed boilerplate
