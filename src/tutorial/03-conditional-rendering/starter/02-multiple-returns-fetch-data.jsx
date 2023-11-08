@@ -6,6 +6,7 @@ const MultipleReturnsFetchData = () => {
   const [isError, setIsError] = useState(false);
 
   const [user, setUser] = useState(null);
+
   const fetchUser = async () => {
     try {
       const resp = await fetch(url);
@@ -54,3 +55,7 @@ export default MultipleReturnsFetchData;
 // loading --> waiting for data to arrive (display loading state)
 //error --> there was an error (display error message)
 // success --> recieved data(display data)
+
+
+// donot place the hook inside of the if condition and also be careful if you have multiple returns basically 
+//if you have jsx returned based on some condition donot place useeffect after them make 
