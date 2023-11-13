@@ -1,6 +1,10 @@
+import avatar from "../../assets/default-avatar.svg";
 import React from "react";
 export function Person({ name, nickName = "shakeAndBake", images }) {
-  const img = images && images[0] && images[0].small && images[0].small.url;
+  //   const img = images && images[0] && images[0].small && images[0].small.url;
+  // -> instead of upper line we can simple write as shown below
+  const img = images?.[0]?.small?.url ?? avatar;
+
   return (
     <div>
       {<img src={img} alt={name} style={{ width: "50px" }} />}
