@@ -1,11 +1,20 @@
 import { useState } from "react";
+import { data } from "../../../data";
+
 const UserChallenge = () => {
   const [name, setName] = useState(" ");
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(data);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("form submitted ");
+    if (!name) return;
+    const fakeId = Date.now();
+    // console.log(fakeId);
+    const newUser = { id: fakeId, name };
+    const updatedUsers = [...users, newUser];
+    setUsers(updatedUsers);
+    // console.log("form submitted ");
+    setName(" ");
   };
 
   return (
@@ -30,6 +39,17 @@ const UserChallenge = () => {
         </button>
       </form>
       {/* render users below */}
+      <h4>users</h4>
+      {users.map(() => {
+        return (
+          <div key={users.id}>
+            <h4>{users.name}</h4>
+            <button onClick={() => {}} className="btn">
+              remove
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };
