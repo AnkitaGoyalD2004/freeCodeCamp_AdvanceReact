@@ -5,7 +5,7 @@ const ToggleExample = () => {
   return (
     <div>
       <h4>toggle custom hook</h4>
-      <button className="btn" onClick={() => setShow(!show)}>
+      <button className="btn" onClick={toggle}>
         toggle
       </button>
       {show && <h4>some stuff</h4>}
