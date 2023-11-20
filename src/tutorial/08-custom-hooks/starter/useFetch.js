@@ -30,4 +30,4 @@ const useFetchUser = () => {
   return { isLoading, isError, data };
 };
 
-export default useFetchPerson;
+export default useFetch;
