@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavbarContext, useAppContext } from "./Navbar";
 
 const UserContainer = () => {
-  const { user, logout } = useAppContext;
+  const { user, logout } = useAppContext();
   //  console.log(value);
 
   return "helloWorld";
