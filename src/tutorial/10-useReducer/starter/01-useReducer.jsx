@@ -3,8 +3,25 @@ import { data } from "../../../data";
 
 const defaultState = {
   people: data,
+  isLoading: false,
 };
-const reducer = () => {};
+
+const CLEAR_LIST = "CLEAR_LIST";
+const RESET_LIST = "RESET_LIST";
+const REMOVE_ITEM = "REMOVE_ITEM";
+
+const reducer = (state, action) => {
+  if (action.type === CLEAR_LIST) {
+    return { ...state, people: [] };
+  }
+
+  if (action.type === RESET_LIST) {
+    return { ...state, people: data };
+  }
+
+  // return state
+  throw new Error(`No matching "${action.type}" - action type`);
+};
 
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
@@ -17,10 +34,12 @@ const ReducerBasics = () => {
   };
   const clearList = () => {
     // setPeople([]);
+    dispatch({ type: "CLEAR_LIST" });
   };
 
   const resetList = () => {
     // setPeople(data);
+    dispatch({ type: RESET_LIST });
   };
 
   return (
